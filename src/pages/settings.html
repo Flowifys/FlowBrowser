@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src * data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+  <title>Settings</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+  <div class="layout">
+    <nav class="side">
+      <div class="head">Settings</div>
+      <a href="#look" class="on">Appearance</a>
+      <a href="#search">Search</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#apps">Side apps</a>
+      <a href="#discord">Discord status</a>
+      <a href="#startup">Startup</a>
+      <a href="#about">About</a>
+    </nav>
+
+    <main>
+      <section id="look">
+        <h2>Appearance</h2>
+        <div class="set col">
+          <div><div class="t">Theme</div><div class="d">The base colours of the whole browser</div></div>
+          <div class="themes" id="themes"></div>
+        </div>
+        <div class="set">
+          <div><div class="t">Accent colour</div><div class="d">Used for tabs, highlights and the logo</div></div>
+          <div class="swatches" id="swatches"></div>
+        </div>
+        <div class="set">
+          <div><div class="t">Home screen wallpaper</div><div class="d">An animated one, or upload any picture from your PC</div></div>
+          <div class="seg" id="walls">
+            <button data-v="flow">Flow waves</button><button data-v="aurora">Aurora</button><button data-v="none">Plain</button><button data-v="custom">Your picture</button>
+          </div>
+        </div>
+        <div class="set" id="photoset">
+          <div><div class="t">Picture</div><div class="d">Darken or blur it so the clock stays easy to read</div></div>
+          <div class="sliders">
+            <label>Darken <input type="range" id="dim" min="0" max="85"></label>
+            <label>Blur <input type="range" id="blur" min="0" max="30"></label>
+            <button class="btn" id="changepic">Change picture</button>
+          </div>
+        </div>
+        <div class="set">
+          <div><div class="t">Show clock on new tab</div></div>
+          <label class="toggle"><input type="checkbox" data-key="showClock"><span></span></label>
+        </div>
+        <div class="set">
+          <div><div class="t">Smooth scrolling</div><div class="d">Applies after restarting Flow</div></div>
+          <label class="toggle"><input type="checkbox" data-key="smoothScroll"><span></span></label>
+        </div>
+      </section>
+
+      <section id="search">
+        <h2>Search</h2>
+        <div class="set">
+          <div><div class="t">Search engine</div><div class="d">What the address bar and new tab search with</div></div>
+          <select class="field" id="engine"></select>
+        </div>
+        <div class="set">
+          <div><div class="t">Search suggestions</div><div class="d">Shows suggestions while you type</div></div>
+          <label class="toggle"><input type="checkbox" data-key="suggestions"><span></span></label>
+        </div>
+      </section>
+
+      <section id="privacy">
+        <h2>Privacy</h2>
+        <div class="set">
+          <div><div class="t">Block ads and trackers</div><div class="d" id="blockedline">Built in blocker, no extension needed</div></div>
+          <label class="toggle"><input type="checkbox" data-key="adblock"><span></span></label>
+        </div>
+        <div class="set col">
+          <div><div class="t">Clear browsing data</div><div class="d">Pick what to remove</div></div>
+          <div class="clear">
+            <label class="check"><input type="checkbox" value="history" checked> History</label>
+            <label class="check"><input type="checkbox" value="cache" checked> Cached files</label>
+            <label class="check"><input type="checkbox" value="cookies"> Cookies and site data (signs you out)</label>
+            <label class="check"><input type="checkbox" value="permissions"> Site permissions</label>
+            <button class="btn danger" id="clearbtn">Clear data</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="apps">
+        <h2>Side apps</h2>
+        <div class="set col">
+          <div><div class="t">Apps in the grid button</div><div class="d">They open in a panel on the right of the page and stay signed in</div></div>
+          <div class="apps" id="applist"></div>
+        </div>
+      </section>
+
+      <section id="discord">
+        <h2>Discord status</h2>
+        <div class="set">
+          <div><div class="t">Show what I'm doing on Discord</div><div class="d" id="rpcline">Like "Watching YouTube" under your name. Private tabs are never shown.</div></div>
+          <label class="toggle"><input type="checkbox" data-key="rpc"><span></span></label>
+        </div>
+        <div class="set">
+          <div><div class="t">Show video and page titles</div><div class="d">Off = only the site, like "Watching YouTube"</div></div>
+          <label class="toggle"><input type="checkbox" data-key="rpcShowTitles"><span></span></label>
+        </div>
+        <div class="set col">
+          <div><div class="t">Application ID</div><div class="d">Discord needs an app for this. Make one called Flow Browser at discord.com/developers/applications, copy its Application ID here, and upload the Flow logo under Rich Presence, Art Assets, named <b>flow</b></div></div>
+          <div class="idrow"><input class="field" id="rpcid" placeholder="123456789012345678" spellcheck="false"><button class="btn" id="rpcsave">Save</button><button class="btn" id="rpcportal">Open developer portal</button></div>
+        </div>
+      </section>
+
+      <section id="startup">
+        <h2>Startup</h2>
+        <div class="set">
+          <div><div class="t">When Flow starts</div></div>
+          <div class="seg" id="start">
+            <button data-v="restore">Continue where I left off</button><button data-v="newtab">Open a new tab</button>
+          </div>
+        </div>
+        <div class="set">
+          <div><div class="t">Default browser</div><div class="d">Opens Windows settings so you can pick Flow</div></div>
+          <button class="btn" id="default">Make default</button>
+        </div>
+      </section>
+
+      <section id="about">
+        <h2>About</h2>
+        <div class="about card">
+          <svg viewBox="0 0 64 64" fill="none" stroke-linecap="round">
+            <defs><linearGradient id="lg" x1="10" y1="8" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="var(--accent)"/><stop offset="1" stop-color="var(--accent-2, #ff8a3d)"/></linearGradient></defs>
+            <path d="M19 53V27c0-10 6-16 16-16h12" stroke="url(#lg)" stroke-width="8.5"/>
+            <path d="M19 33h19" stroke="url(#lg)" stroke-width="8.5"/>
+            <path d="M32 53c7 0 12-3.5 14.5-10" stroke="url(#lg)" stroke-width="5" opacity=".75"/>
+          </svg>
+          <div>
+            <div class="name">Flow Browser</div>
+            <div class="d" id="ver"></div>
+            <div class="d">Made by flowifys</div>
+          </div>
+        </div>
+        <div class="set">
+          <div><div class="t">Reset settings</div><div class="d">Puts every setting back to how it was. Your history and bookmarks stay.</div></div>
+          <button class="btn danger" id="reset">Reset</button>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div id="toast"></div>
+  <script src="common.js"></script>
+  <script src="settings.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src * data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+  <title>Flow Search</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="search.css">
+</head>
+<body>
+  <header id="top">
+    <a class="brand" href="flow://newtab/">
+      <svg viewBox="0 0 64 64" fill="none" stroke-linecap="round">
+        <defs><linearGradient id="lg" x1="10" y1="8" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="var(--accent)"/><stop offset="1" stop-color="var(--accent-2, #ff8a3d)"/></linearGradient></defs>
+        <path d="M19 53V27c0-10 6-16 16-16h12" stroke="url(#lg)" stroke-width="8.5"/>
+        <path d="M19 33h19" stroke="url(#lg)" stroke-width="8.5"/>
+        <path d="M32 53c7 0 12-3.5 14.5-10" stroke="url(#lg)" stroke-width="5" opacity=".75"/>
+      </svg>
+      <span>Flow <b>Search</b></span>
+    </a>
+    <form id="form" autocomplete="off">
+      <input id="q" spellcheck="false">
+      <button type="button" id="clear" title="Clear"></button>
+      <button type="submit" id="go" title="Search"></button>
+    </form>
+  </header>
+
+  <nav id="verticals">
+    <button data-v="web" class="on">All</button>
+    <button data-v="images">Images</button>
+    <button data-v="news">News</button>
+  </nav>
+
+  <div id="wrap">
+    <section id="results"></section>
+    <aside id="side"></aside>
+  </div>
+
+  <div id="viewer" class="hidden">
+    <div class="vbox">
+      <img id="vimg">
+      <div class="vinfo">
+        <div class="vtitle" id="vtitle"></div>
+        <div class="vsrc" id="vsrc"></div>
+        <div class="vacts">
+          <a class="btn primary" id="vvisit">Visit page</a>
+          <a class="btn" id="vopen">Open image</a>
+          <button class="btn" id="vclose">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="common.js"></script>
+  <script src="search.js"></script>
+</body>
+</html>

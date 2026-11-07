@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src * data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+  <title>New Tab</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="newtab.css">
+</head>
+<body>
+  <div id="bg">
+    <div class="orb o1"></div><div class="orb o2"></div>
+    <svg class="waves" viewBox="0 0 1440 400" preserveAspectRatio="none">
+      <defs><linearGradient id="wg" x1="0" x2="1"><stop offset="0" stop-color="var(--accent)"/><stop offset="1" stop-color="var(--accent-2)"/></linearGradient></defs>
+      <path class="w1" d="M0 260 C 240 200, 480 320, 720 250 S 1200 180, 1440 240" />
+      <path class="w2" d="M0 300 C 300 240, 520 360, 760 290 S 1180 230, 1440 300" />
+      <path class="w3" d="M0 220 C 200 280, 560 170, 820 230 S 1220 300, 1440 200" />
+    </svg>
+    <canvas id="aurora"></canvas>
+    <div id="photo"></div>
+    <div id="shade"></div>
+    <div class="grain"></div>
+  </div>
+
+  <main>
+    <div id="clock">
+      <div id="time"></div>
+      <div id="date"></div>
+    </div>
+
+    <form id="searchform" autocomplete="off">
+      <div class="engine" id="engine"></div>
+      <input id="q" placeholder="Search the web" spellcheck="false">
+      <button type="submit" class="go" title="Search"></button>
+      <div id="sugs" class="hidden"></div>
+    </form>
+
+    <section id="pins"></section>
+  </main>
+
+  <footer>
+    <div id="stat"></div>
+    <button id="custom" class="ghost">Customize</button>
+  </footer>
+
+  <div id="drawer" class="hidden">
+    <h3>Make it yours</h3>
+    <label class="lbl">Theme</label>
+    <div class="themes" id="themes"></div>
+    <label class="lbl">Accent</label>
+    <div class="swatches" id="swatches"></div>
+    <label class="lbl">Wallpaper</label>
+    <div class="walls">
+      <button data-wall="flow">Flow waves</button>
+      <button data-wall="aurora">Aurora</button>
+      <button data-wall="none">Plain</button>
+      <button data-wall="custom" id="upload">Upload picture</button>
+    </div>
+    <div class="sliders" id="photoopts">
+      <label>Darken <input type="range" id="dim" min="0" max="85"></label>
+      <label>Blur <input type="range" id="blur" min="0" max="30"></label>
+    </div>
+    <label class="check"><input type="checkbox" id="showclock"> Show clock</label>
+    <button class="btn" id="opensettings">All settings</button>
+  </div>
+
+  <div id="modal" class="hidden">
+    <form class="sheet card" id="pinform">
+      <h3 id="modaltitle">Add pin</h3>
+      <input class="field" id="pname" placeholder="Name">
+      <input class="field" id="purl" placeholder="Address, like youtube.com" spellcheck="false">
+      <div class="sheet-acts">
+        <button type="button" class="btn danger" id="premove">Remove</button>
+        <div style="flex:1"></div>
+        <button type="button" class="btn" id="pcancel">Cancel</button>
+        <button type="submit" class="btn primary">Save</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="common.js"></script>
+  <script src="newtab.js"></script>
+</body>
+</html>

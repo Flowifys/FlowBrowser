@@ -1,0 +1,12 @@
+const { app, BrowserWindow } = require('electron')
+const fs = require('fs')
+const path = require('path')
+app.disableHardwareAcceleration()
+app.whenReady().then(async () => {
+  const w = new BrowserWindow({ width: 1024, height: 1024, show: false, transparent: true, frame: false, webPreferences: { offscreen: true } })
+  await w.loadFile(path.join(__dirname, 'icon.html'))
+  await new Promise(r => setTimeout(r, 800))
+  const img = await w.webContents.capturePage({ x: 0, y: 0, width: 1024, height: 1024 })
+  fs.writeFileSync(path.join(__dirname, '..', 'build', 'icon-1024.png'), img.toPNG())
+  app.quit()
+})

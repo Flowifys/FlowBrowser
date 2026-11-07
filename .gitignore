@@ -1,0 +1,14 @@
+# installed packages (npm install brings them back)
+node_modules/
+
+# built installers (upload these to a GitHub release instead)
+dist/
+*.exe
+*.blockmap
+
+# logs and system clutter
+npm-debug.log*
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini

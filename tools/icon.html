@@ -1,0 +1,29 @@
+<!doctype html><html><body style="margin:0;background:transparent;overflow:hidden"><style>svg{display:block}</style>
+<svg id="s" width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b1c25"/><stop offset="1" stop-color="#0a0b0f"/>
+    </linearGradient>
+    <linearGradient id="g" x1="10" y1="8" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="40%" cy="35%" r="65%">
+      <stop offset="0" stop-color="#7c5cff" stop-opacity=".35"/><stop offset="1" stop-color="#7c5cff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur" filterUnits="userSpaceOnUse" x="-20" y="-20" width="104" height="104"><feGaussianBlur stdDeviation="2.4"/></filter>
+  </defs>
+  <rect x="40" y="40" width="944" height="944" rx="220" fill="url(#tile)"/>
+  <rect x="40" y="40" width="944" height="944" rx="220" fill="url(#glow)"/>
+  <rect x="41.5" y="41.5" width="941" height="941" rx="218.5" fill="none" stroke="#ffffff" stroke-opacity=".08" stroke-width="3"/>
+  <g transform="translate(512 512) scale(12) translate(-32 -32)" fill="none" stroke-linecap="round">
+    <g filter="url(#blur)" opacity=".75">
+      <path d="M19 53V27c0-10 6-16 16-16h12" stroke="url(#g)" stroke-width="8.5"/>
+      <path d="M19 33h19" stroke="url(#g)" stroke-width="8.5"/>
+    </g>
+  </g>
+  <g transform="translate(512 512) scale(12) translate(-32 -32)" fill="none" stroke-linecap="round">
+    <path d="M19 53V27c0-10 6-16 16-16h12" stroke="url(#g)" stroke-width="8.5"/>
+    <path d="M19 33h19" stroke="url(#g)" stroke-width="8.5"/>
+    <path d="M32 53c7 0 12-3.5 14.5-10" stroke="url(#g)" stroke-width="5" opacity=".75"/>
+  </g>
+</svg></body></html>
